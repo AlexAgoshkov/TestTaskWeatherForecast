@@ -15,20 +15,20 @@ namespace WebApi.Controllers
         [Route("api/GetWeatherFiveDay")]
         public IHttpActionResult GetWeatherFiveDay(string city)
         {
-            WeatherForecast oneDay = new WeatherForecast();
+            WeatherForecast wf = new WeatherForecast();
 
             StringBuilder sb = new StringBuilder();
 
             string appid = "1bb6ee2cddff58ee3da8c24b28824471";
             string type = "forecast";
 
-            for (int i = 0; i < oneDay.GetWeatherForFiveDays(city, appid, type).Count; i++)
+            for (int i = 0; i < wf.GetWeatherForFiveDays(city, appid, type).Count; i++)
             {
 
-                sb.Append(" Date -" + oneDay.GetWeatherForFiveDays(city, appid, type)[i++]);
-                sb.Append(" Max Temp " + oneDay.GetWeatherForFiveDays(city, appid, type)[i++]);
-                sb.Append(" Min Temp " + oneDay.GetWeatherForFiveDays(city, appid, type)[i++]);
-                sb.Append(" Speed " + oneDay.GetWeatherForFiveDays(city, appid, type)[i++]);
+                sb.Append(" Date -" + wf.GetWeatherForFiveDays(city, appid, type)[i++]);
+                sb.Append(" Max Temp " + wf.GetWeatherForFiveDays(city, appid, type)[i++]);
+                sb.Append(" Min Temp " + wf.GetWeatherForFiveDays(city, appid, type)[i++]);
+                sb.Append(" Speed " + wf.GetWeatherForFiveDays(city, appid, type)[i++]);
 
             }
 
@@ -42,17 +42,17 @@ namespace WebApi.Controllers
             string appid = "1bb6ee2cddff58ee3da8c24b28824471";
             string type = "weather";
 
-            WeatherForecast oneDay = new WeatherForecast();
-
+            WeatherForecast wf = new WeatherForecast();
+            
             StringBuilder sb = new StringBuilder();
 
-            for (int i = 0; i < oneDay.GetWeatherForOneDay(city, appid, type).Count; i++)
+            for (int i = 0; i < wf.GetWeatherForOneDay(city, appid, type).Count; i++)
             {
-                sb.Append(" DateTime - " + oneDay.GetWeatherForOneDay(city, appid, type)[i++]);
-                sb.Append(" Temp Max - " + oneDay.GetWeatherForOneDay(city, appid, type)[i++]);
-                sb.Append(" Temp Min - " + oneDay.GetWeatherForOneDay(city, appid, type)[i++]);
-                sb.Append(" Speed - " + oneDay.GetWeatherForOneDay(city, appid, type)[i++]);
-                sb.Append(" Weather - " + oneDay.GetWeatherForOneDay(city, appid, type)[i++]);
+                sb.Append(" DateTime - " + wf.GetWeatherForOneDay(city, appid, type)[i++]);
+                sb.Append(" Temp Max - " + wf.GetWeatherForOneDay(city, appid, type)[i++]);
+                sb.Append(" Temp Min - " + wf.GetWeatherForOneDay(city, appid, type)[i++]);
+                sb.Append(" Speed - " + wf.GetWeatherForOneDay(city, appid, type)[i++]);
+                sb.Append(" Weather - " + wf.GetWeatherForOneDay(city, appid, type)[i++]);
             }
 
             return Ok(sb.ToString().Replace('"', ' '));

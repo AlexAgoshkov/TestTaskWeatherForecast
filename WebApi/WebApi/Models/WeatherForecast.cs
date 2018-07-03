@@ -13,7 +13,7 @@ namespace WebApi.Models
         public List<string> GetWeatherForFiveDays(string city, string appid, string type)
         {
             List<string> forecast = new List<string>();
-            List<string> list = new List<string>();
+          
             appid = "1bb6ee2cddff58ee3da8c24b28824471";
             type = "forecast";
 
